@@ -3,8 +3,7 @@
 Play in the Virtual World Sandbox. 
 
 #### Date/Time
-Tuesday, July 14, 2015
-1400 - 1515 ET
+Tuesday, July 14, 2015 | 1400 - 1515 ET
 
 #### Track
 Developer (Track 1)

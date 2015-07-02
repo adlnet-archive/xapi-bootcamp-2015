@@ -3,8 +3,7 @@
 Putting it all together, step-by-step. 
 
 #### Date/Time
-Tuesday, July 14, 2015
-1115 - 1230 ET
+Tuesday, July 14, 2015 | 1115 - 1230 ET
 
 #### Track
 Designer (Track 2)

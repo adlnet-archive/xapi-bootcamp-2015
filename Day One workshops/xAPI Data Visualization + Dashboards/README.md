@@ -3,8 +3,7 @@
 Show us something. 
 
 #### Date/Time
-Tuesday, July 14, 2015
-1515 - 1630 ET
+Tuesday, July 14, 2015 | 1515 - 1630 ET
 
 #### Track
 Developer (Track 1)
