@@ -3,8 +3,7 @@
 Where everything goes, eventually. 
 
 #### Date/Time
-Tuesday, July 14, 2015
-0945 - 1000 ET
+Tuesday, July 14, 2015 | 0945 - 1000 ET
 
 #### Track
 Developer (Track 1)

@@ -3,8 +3,7 @@
 There will be code.
 
 #### Date/Time
-Tuesday, July 14, 2015
-1000 - 1115 ET
+Tuesday, July 14, 2015 | 1000 - 1115 ET
 
 #### Track
 Developer (Track 1)

@@ -3,8 +3,7 @@
 Sleuthing made simpler. 
 
 #### Date/Time
-Tuesday, July 14, 2015
-1515 - 1630 ET
+Tuesday, July 14, 2015 | 1515 - 1630 ET
 
 #### Track
 Designer (Track 2)

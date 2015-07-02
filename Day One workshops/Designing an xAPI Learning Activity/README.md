@@ -3,8 +3,7 @@
 There is no cmi before 5.
 
 #### Date/Time
-Tuesday, July 14, 2015
-1400 - 1515 ET
+Tuesday, July 14, 2015 | 1400 - 1515 ET
 
 #### Track
 Designer (Track 2)

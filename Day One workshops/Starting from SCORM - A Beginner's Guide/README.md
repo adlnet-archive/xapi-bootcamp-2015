@@ -3,8 +3,7 @@
 Don't know anything? Perfect. 
 
 #### Date/Time
-Tuesday, July 14, 2015
-1000 - 1115 ET
+Tuesday, July 14, 2015 | 1000 - 1115 ET
 
 #### Track
 Designer (Track 2)

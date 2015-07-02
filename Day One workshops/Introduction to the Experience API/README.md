@@ -3,8 +3,7 @@
 Everything you need to know when you don't know very much.
 
 #### Date/Time
-Tuesday, July 14, 2015
-0845 - 0930 ET
+Tuesday, July 14, 2015 | 0845 - 0930 ET
 
 #### Track
 n/a

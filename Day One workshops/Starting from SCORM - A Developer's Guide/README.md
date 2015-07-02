@@ -3,8 +3,7 @@
 Building blocks made simpler. 
 
 #### Date/Time
-Tuesday, July 14, 2015
-1115 - 1230 ET
+Tuesday, July 14, 2015 | 1115 - 1230 ET
 
 #### Track
 Developer (Track 1)

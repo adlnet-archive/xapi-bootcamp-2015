@@ -3,8 +3,7 @@
 Do you know who you're talking to? 
 
 #### Date/Time
-Tuesday, July 14, 2015
-1630 - 1650 ET
+Tuesday, July 14, 2015 | 1630 - 1650 ET
 
 #### Track
 Designer (Track 2)
