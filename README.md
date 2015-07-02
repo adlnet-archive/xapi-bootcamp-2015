@@ -17,4 +17,4 @@ Day 2 will also include an all-day xAPI Collaboration Room: a place to bring you
 If you are reading this before July 13th, 2015, you can [register to attend the xAPI Bootcamp](http://www.eventbrite.com/e/xapi-bootcamp-2015-tickets-16750389867).
 
 #### How do I learn more?
-Check out our wiki (when it's finished, I mean).
+Check out our [wiki](https://github.com/adlnet/xapi-bootcamp-2015/wiki).
