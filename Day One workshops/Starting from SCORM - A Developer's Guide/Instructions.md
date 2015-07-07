@@ -52,7 +52,7 @@ Next, replace the SCORM course APIWrapper.js file with the SCORM to xAPI Wrapper
 
 ### Step 3 - Update SCOs
 ---
-Next, add the following code in the <head> sections of each SCO in your course. SCO launch files can be identified by looking at the imsmanifest.xml file at the root of the SCORM package. Resource elements with adlcp:scormtype set to "sco" should contain the complete list of SCOs in the course. In this solution, each SCO will be an xAPI 'activity' with associated 'statements'. Paste the following code before the <script> tag that references the APIWrapper.js file.
+Next, add the following code in the &lt;head&gt; sections of each SCO in your course. SCO launch files can be identified by looking at the imsmanifest.xml file at the root of the SCORM package. Resource elements with adlcp:scormtype set to "sco" should contain the complete list of SCOs in the course. In this solution, each SCO will be an xAPI 'activity' with associated 'statements'. Paste the following code before the &lt;script&gt; tag that references the APIWrapper.js file.
 
 ``` javascript
 <script type="text/javascript">
