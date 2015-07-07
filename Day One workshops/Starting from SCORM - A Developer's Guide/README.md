@@ -16,7 +16,7 @@ This session will provide an overview of the [SCORM to TLA Roadmap](http://adlne
 
 * Participants will update an existing SCORM course using the SCORM to xAPI Wrapper.  
 * After integration with the original SCORM course, the wrapper tracks SCORM-like data via xAPI statements.  
-* After integration, an xAPI reporting system will be used to examine data stored by the content.
+* After integration, an [xAPI statement viewer](http://adlnet.github.io/xapi-statement-viewer/) will be used to examine data stored by the content.
 
 Time permitting, an Android app which augments data saved by the SCORM course will be demonstrated.
 
