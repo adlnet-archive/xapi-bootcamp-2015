@@ -21,7 +21,10 @@ Get the required resources:
    * [SCORMToXAPIFunctions.js](https://github.com/adlnet/SCORM-to-xAPI-Wrapper/blob/master/SCORMToXAPIFunctions.js) - Contains all of the code required to map SCORM data model elements to xAPI statements
    * [xapiwrapper.min.js](https://github.com/adlnet/xAPIWrapper/blob/master/dist/xapiwrapper.min.js) - Obscures complexities of the xAPI and includes the ADL core verbs
    * [Step 1 - RosesOriginal.zip](add link)
-   * [Step 2 - RosesWithInitialXAPIWrapperIntegration.zip](add link)
+   * [Step 2 - ReplacingAndAddingFiles.zip](add link)
+   * [Step 3 - UpdateSCOs.zip](add link)
+   * [Step 4 - SetActivityIDs.zip](add link)
+   * [Step 5 - ConfigureLRSInfo.zip](add link)
 
 Extract “Step 1 - RosesOriginal.zip” to a local directory on your computer.  This will be our starting place for the hands-on workshop.  
 
@@ -41,11 +44,11 @@ Note: If you have access to an LMS and would like to import your course steps in
 ---
 In this step, we will add some resources and make simple changes to enable the tracking of many SCORM Data Model elements via the xAPI (in addition to the original SCORM tracking).
 
-First, add the xapiwrapper.min.js file to the scripts directory (/Shared/JavaScript).  This file will be used to abstract the complexity of the xAPI web service components.
+First, add the [xapiwrapper.min.js](https://github.com/adlnet/xAPIWrapper/blob/master/dist/xapiwrapper.min.js) file to the scripts directory (/Shared/JavaScript).  This file will be used to abstract the complexity of the xAPI web service components.
 
-Next, add the SCORMToXAPIFunctions.js file to the scripts direcotry (/Shared/JavaScript).  
+Next, add the [SCORMToXAPIFunctions.js](https://github.com/adlnet/SCORM-to-xAPI-Wrapper/blob/master/SCORMToXAPIFunctions.js) file to the scripts directory (/Shared/JavaScript).  
 
-Next, replace the SCORM course APIWrapper.js file with the SCORM to xAPI Wrapper files (still named APIWrapper.js)
+Next, replace the SCORM course [xapiwrapper.min.js](https://github.com/adlnet/xAPIWrapper/blob/master/dist/xapiwrapper.min.js) file with the SCORM to xAPI Wrapper files (still named APIWrapper.js)
 
 *Workshop Demonstration - No demonstration capable in this step*
 
@@ -64,7 +67,7 @@ Next, add the following code in the &lt;head&gt; sections of each SCO in your co
 
   * Be sure that the path in the src attribute above points to the location of the minified xapiwrapper.min.js and SCORMToXAPIFunctions.js file. This location assumes that one directory up from the SCO location, that there is a Shared/JavaScript directory with your JavaScript files.
 
-The complete list of SCO launch files for this step (and the following) are included below:
+The complete list of SCO launch files for this step (and the following) is included below:
 
    * /Assessments/assess_q1.html
    * /Assessments/assess_q2.html
@@ -80,6 +83,7 @@ The complete list of SCO launch files for this step (and the following) are incl
    * /Styles_Of_Floristry/Floristry.html
    * /What_Is_A_Rose/What_Is_A_Rose.html
 
+*Workshop Demonstration - No demonstration capable in this step*
 
 ### Step 4 - Set Activity IDs
 ---
@@ -106,6 +110,7 @@ Add the appropriate identifier in each SCO.  The following list provides sample 
    * http://adlnet.gov/courses/roses/styles
    * http://adlnet.gov/courses/roses/what
 
+*Workshop Demonstration - No demonstration capable in this step*
 
 ### Step 5 - Configure LRS Information
 ---
@@ -125,6 +130,8 @@ Several configuration values must be set in the updated APIWrapper.js file.  In 
   };
 ```
 Now the course can be imported into your LMS and used to track a subset of SCORM data via the xAPI.
+
+*Workshop Demonstration - SCORM Course, with added xAPI tracking, in an LMS*
 
 ### Extra Credit
 Now that the course is updated to track to an LRS, you can access data historically not available to a SCORM SCO.  For example, you can get all of the scores associated with the post test and show the learner's score vs. the average of the class. 
@@ -194,20 +201,15 @@ function getScoreData()
 
    for (var i=0; i < statements.length; i++)
    {
-      console.log("   looping");
       // figure out the average
       if (statements[i].result != undefined)
       {
-         console.log("   have a valid result");
          scoreStructure.totalNumberOfScores++;
-         scoreStructure.totalScores = scoreStructure.totalScores + statements[i].result.score.scaled;
-         console.log("      total number of scores: " + scoreStructure.totalNumberOfScores);
-         console.log("      total of scores: " + scoreStructure.totalScores);           
+         scoreStructure.totalScores = scoreStructure.totalScores + statements[i].result.score.scaled;         
       }
    }  
 
    scoreStructure.average = scoreStructure.totalScores / scoreStructure.totalNumberOfScores;
-   console.log("average: " + scoreStructure.average);
 
    return scoreStructure;
 }
