@@ -2,7 +2,6 @@
 # Starting from SCORM: A Developer's Guide
 
 ## Purpose
----
 This session includes an overview of the SCORM to TLA Roadmap as well as a hands-on workshop where an existing SCORM course is updated to track data using xAPI.  In this tutorial you will learn:
 
    1. the SCORM to xAPI phases and how to determine the best fit for your organization
@@ -11,10 +10,10 @@ This session includes an overview of the SCORM to TLA Roadmap as well as a hands
    4. examples of new functionality enabled by applying xAPI to a traditional SCORM course
 
 ## Step by Step Instructions
----
 
 
 ### Step 1 - Setup
+---
 In this step, we’ll examine the SCORM course to be used during this workshop and look at several resources that will be used in this demonstration.
 
 Get the required resources:
@@ -39,6 +38,7 @@ Note: If you have access to an LMS and would like to import your course steps in
 
 
 ### Step 2 - Replacing and Adding Files
+---
 In this step, we will add some resources and make simple changes to enable the tracking of many SCORM Data Model elements via the xAPI (in addition to the original SCORM tracking).
 
 First, add the xapiwrapper.min.js file to the scripts directory (/Shared/JavaScript).  This file will be used to abstract the complexity of the xAPI web service components.
@@ -51,6 +51,7 @@ Next, replace the SCORM course APIWrapper.js file with the SCORM to xAPI Wrapper
 
 
 ### Step 3 - Update SCOs
+---
 Next, add the following code in the <head> sections of each SCO in your course. SCO launch files can be identified by looking at the imsmanifest.xml file at the root of the SCORM package. Resource elements with adlcp:scormtype set to "sco" should contain the complete list of SCOs in the course. In this solution, each SCO will be an xAPI 'activity' with associated 'statements'. Paste the following code before the <script> tag that references the APIWrapper.js file.
 
 ``` javascript
@@ -81,6 +82,7 @@ The complete list of SCO launch files for this step (and the following) are incl
 
 
 ### Step 4 - Set Activity IDs
+---
 When using the code in Step 3 above, Activity IDs will be automatically generated based on the URL of the SCO. This may be LMS-dependent, so it is also possible to manually configure your activity URIs by changing a line of javascript code in each SCO. This will also ensure that your activity IRIs do not change when you import a new copy of the course or include the same course in an additional LMS. 
 
 To manually configure your activity URI's make the following update to the code above:
@@ -106,6 +108,7 @@ Add the appropriate identifier in each SCO.  The following list provides sample 
 
 
 ### Step 5 - Configure LRS Information
+---
 Several configuration values must be set in the updated APIWrapper.js file.  In order for the wrapper to communicate to an LRS and include relevent contextual information, the LRS information, course identifier and LMS home page are required. In "doInitialize()" method in APIWrapper.js, configure the following lines of code as indicated below:
 
 ``` javascript
@@ -123,10 +126,104 @@ Several configuration values must be set in the updated APIWrapper.js file.  In 
 ```
 Now the course can be imported into your LMS and used to track a subset of SCORM data via the xAPI.
 
-
 ### Extra Credit
+Now that the course is updated to track to an LRS, you can access data historically not available to a SCORM SCO.  For example, you can get all of the scores associated with the post test and show the learner's score vs. the average of the class. 
 
-## A Few Words on Context
+In the SCORM to xAPI functions file (/Shared/JavaScript/SCORMToXAPIFunctions.js), add a function to get ALL statements from the LRS based on search/query parameters.  The complete function is listed below.
 
+``` javascript
+/*****************************************************************************
+**
+** xAPI Extension
+**
+** This function is used get all statements via looping through "more" 
+** 
+** Note: This function uses xAPI natively and does not correspond to
+**       SCORM functionality.  
+**
+*****************************************************************************/
+function GetCompleteStatementListFromLRS(search)
+{
+    var result = ADL.XAPIWrapper.getStatements(search);
+    var statements = result.statements;
+
+    while(result.more && result.more !== "")
+    {
+        var res = ADL.XAPIWrapper.getStatements(null, result.more);
+        var stmts = res.statements;
+
+        statements.push.apply(statements, stmts);
+
+        result = res;
+    }   
+
+    return statements;
+}
+```
+
+Then add a function that returns a custom score object that contains data about the score (the average, total number of scores, and total of the scores).   The complete function is listed below.
+
+``` javascript
+/*****************************************************************************
+**
+** xAPI Extension
+**
+** This function is used get the average score on the exam 
+** 
+** Note: This function uses xAPI natively and does not correspond to
+**       SCORM functionality.  It is not possible to query other learners'
+**       data with the SCORM Run-Time API
+**
+*****************************************************************************/
+function getScoreData()
+{
+   console.log("getScoreData");
+
+   // Set up object for score data
+   var scoreStructure = new Object();
+   scoreStructure.totalNumberOfScores = 0;
+   scoreStructure.totalScores = 0;
+   scoreStructure.average = 0;
+
+
+   var search = ADL.XAPIWrapper.searchParams();
+   search['activity'] = activity;
+   search['verb'] = ADL.verbs.scored.id;
+   
+   var statements = GetCompleteStatementListFromLRS(search);
+
+   for (var i=0; i < statements.length; i++)
+   {
+      console.log("   looping");
+      // figure out the average
+      if (statements[i].result != undefined)
+      {
+         console.log("   have a valid result");
+         scoreStructure.totalNumberOfScores++;
+         scoreStructure.totalScores = scoreStructure.totalScores + statements[i].result.score.scaled;
+         console.log("      total number of scores: " + scoreStructure.totalNumberOfScores);
+         console.log("      total of scores: " + scoreStructure.totalScores);           
+      }
+   }  
+
+   scoreStructure.average = scoreStructure.totalScores / scoreStructure.totalNumberOfScores;
+   console.log("average: " + scoreStructure.average);
+
+   return scoreStructure;
+}
+```
+
+Next, update the post test (/PostTest/Posttest.html) to call the new getScoreData() function and display the results.  Add the following code above the “res.innerHTML = message;” line.
+
+``` javascript
+  // xAPI Extension
+  var scoreStructure = getScoreData();
+  message += "<br /><br />";
+  message += "<strong>Experience API-Enabled Data:</strong>";
+  message += "<br />";
+  message += "Average score is: " + scoreStructure.average;
+  message += "<br />";
+  message += "Total number of scores: " + scoreStructure.totalNumberOfScores;
+```
 
 
