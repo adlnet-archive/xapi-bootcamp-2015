@@ -28,3 +28,6 @@ Time permitting, an Android app which augments data saved by the SCORM course wi
 Participants should come with a laptop and a code editor.  If you are installing an editor for this session, consider [Sublime Text 3](http://www.sublimetext.com/), as it will be used as the demonstration IDE.  
 
 To (optionally) test your course along the way in an LMS, please come with an account to an existing SCORM Conformant LMS (3rd or 4th Ed) account.  If you do not have an existing LMS account, consider using a hosted solution: [SCORM Cloud](http://cloud.scorm.com).  More advanced users may install a local LMS: [ADL Sample RTE](http://www.adlnet.org/resources/scorm-2004-4th-edition-adl-sample-rte-version-1_1_1/index.html).  
+
+#### Step by Step
+The step by step instructions and resource listing is available in the [Instructions.md file](https://github.com/adlnet/xapi-bootcamp-2015/blob/master/Day%20One%20workshops/Starting%20from%20SCORM%20-%20A%20Developer's%20Guide/Instructions.md)
