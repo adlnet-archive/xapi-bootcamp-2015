@@ -18,7 +18,7 @@ In this step, we’ll examine the SCORM course to be used during this workshop a
 
 Get the required resources:
    * [SCORM 2004 APIWrapper.js](https://github.com/adlnet/SCORM-to-xAPI-Wrapper/blob/master/SCORM2004/APIWrapper.js) - The new SCORM Wrapper containing integration points for the conversion code
-   * [SCORMToXAPIFunctions.js](https://github.com/adlnet/SCORM-to-xAPI-Wrapper/blob/master/SCORMToXAPIFunctions.js) - Contains all of the code required to map SCORM data model elements to xAPI statements
+   * [SCORMToXAPIFunctions.js](add link) - Contains all of the code required to map SCORM data model elements to xAPI statements
    * [xapiwrapper.min.js](https://github.com/adlnet/xAPIWrapper/blob/master/dist/xapiwrapper.min.js) - Obscures complexities of the xAPI and includes the ADL core verbs
    * [Step 1 - RosesOriginal.zip](add link)
    * [Step 2 - ReplacingAndAddingFiles.zip](add link)
@@ -46,9 +46,9 @@ In this step, we will add some resources and make simple changes to enable the t
 
 First, add the [xapiwrapper.min.js](https://github.com/adlnet/xAPIWrapper/blob/master/dist/xapiwrapper.min.js) file to the scripts directory (/Shared/JavaScript).  This file will be used to abstract the complexity of the xAPI web service components.
 
-Next, add the [SCORMToXAPIFunctions.js](https://github.com/adlnet/SCORM-to-xAPI-Wrapper/blob/master/SCORMToXAPIFunctions.js) file to the scripts directory (/Shared/JavaScript).  
+Next, add the [SCORMToXAPIFunctions.js](add link) file to the scripts directory (/Shared/JavaScript).  
 
-Next, replace the SCORM course [xapiwrapper.min.js](https://github.com/adlnet/xAPIWrapper/blob/master/dist/xapiwrapper.min.js) file with the SCORM to xAPI Wrapper files (still named APIWrapper.js)
+Next, replace the SCORM course [SCORM 2004 APIWrapper.js](https://github.com/adlnet/SCORM-to-xAPI-Wrapper/blob/master/SCORM2004/APIWrapper.js) file with the SCORM to xAPI Wrapper files (still named APIWrapper.js)
 
 *Workshop Demonstration - No demonstration capable in this step*
 
@@ -80,7 +80,7 @@ The complete list of SCO launch files for this step (and the following) is inclu
    * /PostTest/Posttest.html
    * /Pruning/Pruning.html
    * /Shearing/Shearing.html
-   * /Styles_Of_Floristry/Floristry.html
+   * /Styles_Of_Floristry/Styles_Of_Floristry.html
    * /What_Is_A_Rose/What_Is_A_Rose.html
 
 *Workshop Demonstration - No demonstration capable in this step*
@@ -114,7 +114,7 @@ Add the appropriate identifier in each SCO.  The following list provides sample 
 
 ### Step 5 - Configure LRS Information
 ---
-Several configuration values must be set in the updated APIWrapper.js file.  In order for the wrapper to communicate to an LRS and include relevent contextual information, the LRS information, course identifier and LMS home page are required. In "doInitialize()" method in APIWrapper.js, configure the following lines of code as indicated below:
+Several configuration values must be set in the updated APIWrapper.js file.  In order for the wrapper to communicate to an LRS and include relevent contextual information, the LRS information, course identifier and LMS home page are required. In "doInitialize()" method in APIWrapper.js (in the /Shared/JavaScript directory), configure the following lines of code as indicated below:
 
 ``` javascript
 // xAPI Extension
@@ -129,6 +129,19 @@ Several configuration values must be set in the updated APIWrapper.js file.  In 
       isScorm2004:true
   };
 ```
+
+Also, in order to distinguish this course from the original, change the course title in the imsmanifest.xml file at the root of the course.  The code snippet below illustrates the required change:
+
+``` xml
+...
+<organizations default="ORG-35C6AD226A6FC7DB47BE726A01167EBF">
+    <organization identifier="ORG-35C6AD226A6FC7DB47BE726A01167EBF" structure="hierarchical">
+      <title>Roses 101 - xAPI-Converted</title>
+      <item identifier="ITEM-5E9AC1DCB6A0F867E6197B8CDB8948C5" isvisible="true">
+        <title>Module1</title>
+...
+```
+
 Now the course can be imported into your LMS and used to track a subset of SCORM data via the xAPI.
 
 *Workshop Demonstration - SCORM Course, with added xAPI tracking, in an LMS*
@@ -139,17 +152,8 @@ Now that the course is updated to track to an LRS, you can access data historica
 In the SCORM to xAPI functions file (/Shared/JavaScript/SCORMToXAPIFunctions.js), add a function to get ALL statements from the LRS based on search/query parameters.  The complete function is listed below.
 
 ``` javascript
-/*****************************************************************************
-**
-** xAPI Extension
-**
-** This function is used get all statements via looping through "more" 
-** 
-** Note: This function uses xAPI natively and does not correspond to
-**       SCORM functionality.  
-**
-*****************************************************************************/
-function GetCompleteStatementListFromLRS(search)
+// extra credit extension
+var GetCompleteStatementListFromLRS = function(search)
 {
     var result = ADL.XAPIWrapper.getStatements(search);
     var statements = result.statements;
@@ -171,18 +175,8 @@ function GetCompleteStatementListFromLRS(search)
 Then add a function that returns a custom score object that contains data about the score (the average, total number of scores, and total of the scores).   The complete function is listed below.
 
 ``` javascript
-/*****************************************************************************
-**
-** xAPI Extension
-**
-** This function is used get the average score on the exam 
-** 
-** Note: This function uses xAPI natively and does not correspond to
-**       SCORM functionality.  It is not possible to query other learners'
-**       data with the SCORM Run-Time API
-**
-*****************************************************************************/
-function getScoreData()
+// extra credit extension
+var getScoreData = function()
 {
    console.log("getScoreData");
 
@@ -196,7 +190,7 @@ function getScoreData()
    var search = ADL.XAPIWrapper.searchParams();
    search['activity'] = activity;
    search['verb'] = ADL.verbs.scored.id;
-   
+
    var statements = GetCompleteStatementListFromLRS(search);
 
    for (var i=0; i < statements.length; i++)
@@ -215,11 +209,42 @@ function getScoreData()
 }
 ```
 
-Next, update the post test (/PostTest/Posttest.html) to call the new getScoreData() function and display the results.  Add the following code above the “res.innerHTML = message;” line.
+Next update the object return value to include the new public function.  Change the return value as follows:
+
+``` javascript
+...
+return{setConfig:setConfig,
+      initializeAttempt:initializeAttempt,
+      resumeAttempt:resumeAttempt,
+      suspendAttempt:suspendAttempt,
+      terminateAttempt:terminateAttempt,
+      saveDataValue:saveDataValue,
+      setScore:setScore,
+      setComplete:setComplete,
+      setSuccess:setSuccess,
+      configureLRS:configureLRS,
+      getScoreData:getScoreData 
+      }
+...
+```
+
+Also, in order to distinguish this course from the original, change the course title in the imsmanifest.xml file at the root of the course.  The code snippet below illustrates the required change:
+
+``` xml
+...
+<organizations default="ORG-35C6AD226A6FC7DB47BE726A01167EBF">
+    <organization identifier="ORG-35C6AD226A6FC7DB47BE726A01167EBF" structure="hierarchical">
+      <title>Roses 101 - xAPI-Converted - Extra Credit</title>
+      <item identifier="ITEM-5E9AC1DCB6A0F867E6197B8CDB8948C5" isvisible="true">
+        <title>Module1</title>
+...
+```
+
+Finally, report the data by updating the post test (/PostTest/Posttest.html) to call the new getScoreData() function and display the results.  Add the following code above the “res.innerHTML = message;” line.
 
 ``` javascript
   // xAPI Extension
-  var scoreStructure = getScoreData();
+  var scoreStructure = xapi.getScoreData();
   message += "<br /><br />";
   message += "<strong>Experience API-Enabled Data:</strong>";
   message += "<br />";
@@ -227,5 +252,10 @@ Next, update the post test (/PostTest/Posttest.html) to call the new getScoreDat
   message += "<br />";
   message += "Total number of scores: " + scoreStructure.totalNumberOfScores;
 ```
+
+### A Note About Context
+The SCORMToXAPIFunction.js file used as part of this example contains additional context activities.  This additional context is used for dashboard & reporting session later today.  
+
+**To use this approach outside of this tutorial, do not use the SCORMToXAPIFunctions.js file used in this workshop.  Please download the basic SCORMToXAPIFunctions.js file located in the SCORM-to-xAPI [SCORM 1.2](https://github.com/adlnet/SCORM-to-xAPI-Wrapper/tree/master/SCORM1.2) or [SCORM 2004](https://github.com/adlnet/SCORM-to-xAPI-Wrapper/tree/master/SCORM2004) directories.**
 
 
