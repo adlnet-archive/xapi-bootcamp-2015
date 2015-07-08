@@ -17,14 +17,15 @@ This session includes an overview of the SCORM to TLA Roadmap as well as a hands
 In this step, we’ll examine the SCORM course to be used during this workshop and look at several resources that will be used in this demonstration.
 
 Get the required resources:
-   * [SCORM 2004 APIWrapper.js](https://github.com/adlnet/SCORM-to-xAPI-Wrapper/blob/master/SCORM2004/APIWrapper.js) - The new SCORM Wrapper containing integration points for the conversion code
-   * [SCORMToXAPIFunctions.js](add link) - Contains all of the code required to map SCORM data model elements to xAPI statements
-   * [xapiwrapper.min.js](https://github.com/adlnet/xAPIWrapper/blob/master/dist/xapiwrapper.min.js) - Obscures complexities of the xAPI and includes the ADL core verbs
-   * [Step 1 - RosesOriginal.zip](add link)
-   * [Step 2 - ReplacingAndAddingFiles.zip](add link)
-   * [Step 3 - UpdateSCOs.zip](add link)
-   * [Step 4 - SetActivityIDs.zip](add link)
-   * [Step 5 - ConfigureLRSInfo.zip](add link)
+   * [SCORM 2004 APIWrapper.js](https://raw.githubusercontent.com/adlnet/SCORM-to-xAPI-Wrapper/master/SCORM2004/APIWrapper.js) - The new SCORM Wrapper containing integration points for the conversion code
+   * [SCORMToXAPIFunctions.js](https://raw.githubusercontent.com/adlnet/xapi-bootcamp-2015/master/Day%20One%20workshops/Starting%20from%20SCORM%20-%20A%20Developer's%20Guide/Resources/SCORMToXAPIFunctions.js) - Contains all of the code required to map SCORM data model elements to xAPI statements
+   * [xapiwrapper.min.js](https://raw.githubusercontent.com/adlnet/xAPIWrapper/master/dist/xapiwrapper.min.js) - Obscures complexities of the xAPI and includes the ADL core verbs
+   * [Step 1 - RosesOriginal.zip](https://github.com/adlnet/xapi-bootcamp-2015/blob/master/Day%20One%20workshops/Starting%20from%20SCORM%20-%20A%20Developer's%20Guide/Steps/Step%201%20-%20RosesOriginal.zip?raw=true)
+   * [Step 2 - ReplacingAndAddingFiles.zip](https://github.com/adlnet/xapi-bootcamp-2015/blob/master/Day%20One%20workshops/Starting%20from%20SCORM%20-%20A%20Developer's%20Guide/Steps/Step%202%20-%20ReplacingAndAddingFiles.zip?raw=true)
+   * [Step 3 - UpdateSCOs.zip](https://github.com/adlnet/xapi-bootcamp-2015/blob/master/Day%20One%20workshops/Starting%20from%20SCORM%20-%20A%20Developer's%20Guide/Steps/Step%203%20-%20UpdateSCOs.zip?raw=true)
+   * [Step 4 - SetActivityIDs.zip](https://github.com/adlnet/xapi-bootcamp-2015/blob/master/Day%20One%20workshops/Starting%20from%20SCORM%20-%20A%20Developer's%20Guide/Steps/Step%204%20-%20SetActivityIDs.zip?raw=true)
+   * [Step 5 - ConfigureLRSInfo.zip](https://github.com/adlnet/xapi-bootcamp-2015/blob/master/Day%20One%20workshops/Starting%20from%20SCORM%20-%20A%20Developer's%20Guide/Steps/Step%205%20-%20ConfigureLRSInfo.zip?raw=true)
+   * [Step 6 - Extra Credit.zip](https://github.com/adlnet/xapi-bootcamp-2015/blob/master/Day%20One%20workshops/Starting%20from%20SCORM%20-%20A%20Developer's%20Guide/Steps/Step%206%20-%20Extra%20Credit.zip?raw=true)
 
 Extract “Step 1 - RosesOriginal.zip” to a local directory on your computer.  This will be our starting place for the hands-on workshop.  
 
@@ -44,11 +45,11 @@ Note: If you have access to an LMS and would like to import your course steps in
 ---
 In this step, we will add some resources and make simple changes to enable the tracking of many SCORM Data Model elements via the xAPI (in addition to the original SCORM tracking).
 
-First, add the [xapiwrapper.min.js](https://github.com/adlnet/xAPIWrapper/blob/master/dist/xapiwrapper.min.js) file to the scripts directory (/Shared/JavaScript).  This file will be used to abstract the complexity of the xAPI web service components.
+First, add the [xapiwrapper.min.js](https://raw.githubusercontent.com/adlnet/xAPIWrapper/master/dist/xapiwrapper.min.js) file to the scripts directory (/Shared/JavaScript).  This file will be used to abstract the complexity of the xAPI web service components.
 
-Next, add the [SCORMToXAPIFunctions.js](add link) file to the scripts directory (/Shared/JavaScript).  
+Next, add the [SCORMToXAPIFunctions.js](https://raw.githubusercontent.com/adlnet/xapi-bootcamp-2015/master/Day%20One%20workshops/Starting%20from%20SCORM%20-%20A%20Developer's%20Guide/Resources/SCORMToXAPIFunctions.js) file to the scripts directory (/Shared/JavaScript).  
 
-Next, replace the SCORM course [SCORM 2004 APIWrapper.js](https://github.com/adlnet/SCORM-to-xAPI-Wrapper/blob/master/SCORM2004/APIWrapper.js) file with the SCORM to xAPI Wrapper files (still named APIWrapper.js)
+Next, replace the SCORM course [SCORM 2004 APIWrapper.js](https://raw.githubusercontent.com/adlnet/SCORM-to-xAPI-Wrapper/master/SCORM2004/APIWrapper.js) file with the SCORM to xAPI Wrapper files (still named APIWrapper.js)
 
 *Workshop Demonstration - No demonstration capable in this step*
 
