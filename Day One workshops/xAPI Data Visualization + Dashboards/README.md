@@ -20,3 +20,10 @@ This session will show how to get data from an Experience API (xAPI) Learning Re
 
 #### What to bring with you
 Laptop equipped with a text editor ([Brackets](http://brackets.io/), [Sublime Text 3](http://www.sublimetext.com/), [Notepad ++](https://notepad-plus-plus.org/), [vi](http://ex-vi.sourceforge.net/)/[vim](http://vim.sourceforge.net/), etc.) 
+
+#### Resources covered in session
+* [JavaScript Examples](https://gist.github.com/ljwolford/9f0ae636b7bb36708a68)
+* [xAPI Collection Examples](https://gist.github.com/ljwolford/ac2dfc8fab5d2c91a1ea)
+* [Example SCORM Statements](https://gist.github.com/ljwolford/94ddbaad5226ac274cd0)
+* [Example Beacon Statements](https://gist.github.com/ljwolford/0591c60c14e295c4f7d1)
+* [Example VWF Statements](https://gist.github.com/ljwolford/5020139db43b449e8042)
