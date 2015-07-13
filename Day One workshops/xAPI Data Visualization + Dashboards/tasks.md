@@ -6,4 +6,4 @@
 
 ## Bar Chart of the Frequency a Number is Guessed
 
-![Guess Number Frequency Bar Chart](img/numgreq.png)
+![Guess Number Frequency Bar Chart](img/numfreq.png)
