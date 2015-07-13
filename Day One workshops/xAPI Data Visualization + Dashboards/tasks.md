@@ -10,7 +10,7 @@
 
 ## Extra Challenges
 The following challenges gives you the chance to gain more experience querying the LRS and filtering statements. We used the [xAPI Collection](https://github.com/adlnet/xAPI-Dashboard/blob/master/API_collection.md) module, but you may use any process you want. 
-- List the players of ‘guess the number’  
+#### List the players of ‘guess the number’  
   __Output:__  
   ```javascript  
   [
@@ -25,8 +25,9 @@ The following challenges gives you the chance to gain more experience querying t
     }
   ]
   ```  
-  
-- List the players and average number of guesses to get the number  
+    
+    
+#### List the players and average number of guesses to get the number  
   __Output:__  
   ```javascript
   [
@@ -40,8 +41,9 @@ The following challenges gives you the chance to gain more experience querying t
     }
   ]
   ```  
-  
-- Display the statement of the longest game played  
+    
+    
+#### Display the statement of the longest game played  
   __Output:__  
   ```javascript
   {
@@ -110,8 +112,9 @@ The following challenges gives you the chance to gain more experience querying t
     }
   }
   ```  
-  
-- List the players and total time playing the game  
+    
+    
+#### List the players and total time playing the game  
   __Output:__  
   ```javascript
   [
@@ -125,24 +128,40 @@ The following challenges gives you the chance to gain more experience querying t
     }
   ]
   ```  
-  
-- Group the SCORM to xAPI statements by posttest (activity id: http://adlnet.gov/courses/roses/posttest) test scores  
+    
+    
+#### Group the SCORM to xAPI statements by posttest (activity id: http://adlnet.gov/courses/roses/posttest) test scores  
   __Output:__  
   ```javascript
   ```  
-  
-- Group the VW Sandbox statements by registration UUID  
+    
+    
+#### Group the VW Sandbox statements by registration UUID  
   __Output:__  
   ```javascript
   ```  
-  
-- Display the most used verb in the LRS in the past 2 weeks  
+    
+    
+#### Display the most used verb in the LRS in the past 2 weeks  
   __Output:__  
   ```javascript
+  [
+    {
+        "verbID": "http://adlnet.gov/xapi/verbs/passed(to_go_beyond)",
+        "count": 552
+    }
+  ]
   ```  
-  
-- Display the most used activity in the LRS in the past 2 weeks  
+    
+    
+#### Display the most used activity in the LRS in the past 2 weeks  
   __Output:__  
   ```javascript
+  [
+    {
+        "activityID": "act:adlnet.gov/JsTetris_XAPI",
+        "count": 247
+    }
+  ]
   ```  
   
