@@ -133,12 +133,30 @@ The following challenges gives you the chance to gain more experience querying t
 #### Group the SCORM to xAPI statements by posttest (activity id: http://adlnet.gov/courses/roses/posttest) test scores  
   __Output:__  
   ```javascript
+  [
+    {
+      "group": "0.25",
+      "data": [statements...]
+    },
+    {
+      "group": "0.5",
+      "data": [statements...]
+    },
+    ...
+  ]
   ```  
     
     
 #### Group the VW Sandbox statements by registration UUID  
   __Output:__  
   ```javascript
+    [
+      {
+        "group": <the registration uuid>,
+        "data": [statements...]
+      },
+      ...
+    ]
   ```  
     
     
