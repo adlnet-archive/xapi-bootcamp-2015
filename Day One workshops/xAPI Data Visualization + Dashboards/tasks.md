@@ -1,5 +1,5 @@
 # Hands On Reporting
-
+Welcome to the hands on portion of the session. The following are some challenges to highlight ADL's Dashboard and Collection libraries, while giving you exposure to working with statements. The xAPI Dashboard is included in the GitHub project for your use, or download the dashboard files [here](https://github.com/adlnet/xAPI-Dashboard).
 ## Bar Chart of Users Attempt Count
 
 ![Users Attempt Count Bar Chart](img/user-att.png)
