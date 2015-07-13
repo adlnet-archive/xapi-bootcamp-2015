@@ -1,5 +1,47 @@
 # Hands On Reporting
-Welcome to the hands on portion of the session. The following are some challenges to highlight ADL's Dashboard and Collection libraries, while giving you exposure to working with statements. The xAPI Dashboard is included in the GitHub project for your use, or download the dashboard files [here](https://github.com/adlnet/xAPI-Dashboard/releases/tag/v1.2.1).
+Welcome to the hands on portion of the session. The following are some challenges to highlight ADL's Dashboard and Collection libraries, while giving you exposure to working with statements. The xAPI Dashboard is included in the GitHub project for your use, or download the dashboard files [here](https://github.com/adlnet/xAPI-Dashboard/releases/tag/v1.2.1).  
+  
+The following is a template you can use for the bar charts. Please note that the `<script src='./dist/xapicollection.min.js'>` may need to be updated to point to the location of the Dashboard files (nv.d2.css, xapidashboard.min.js & xapicollection.min.js).  
+```html
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Reporting Demo</title>
+
+        <!-- jquery to support bootstrap and for general dom manipulation -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="./lib/nv.d3.css"></link>
+        <script type="text/javascript" src="./dist/xapidashboard.min.js"></script>
+        <script type="text/javascript" src="./dist/xapicollection.min.js"></script>
+        <script>
+            ADL.XAPIWrapper.changeConfig({"endpoint" : 'https://lrs.adlnet.gov/xAPI/', user: 'tom', password: '1234'});
+
+            window.onload = function(){
+            };
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Hands on Charts</h2>
+            <div id="graphContainer">
+               <svg></svg>
+            </div>
+        </div>
+    </body>
+</html>
+```
 ## Bar Chart of Users Attempt Count
 
 ![Users Attempt Count Bar Chart](img/user-att.png)
