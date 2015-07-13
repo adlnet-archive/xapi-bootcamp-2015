@@ -22,6 +22,8 @@ The following is a template you can use for the bar charts. Please note that the
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        
+        <!-- you may need to update these URLs -->
         <link rel="stylesheet" href="./lib/nv.d3.css"></link>
         <script type="text/javascript" src="./dist/xapidashboard.min.js"></script>
         <script type="text/javascript" src="./dist/xapicollection.min.js"></script>
