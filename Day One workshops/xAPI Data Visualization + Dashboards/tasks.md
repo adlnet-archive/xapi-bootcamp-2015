@@ -228,3 +228,5 @@ The following challenges gives you the chance to gain more experience querying t
   ]
   ```  
   
+## GitHub Gist of Challenge Solutions
+The following gist contain solutions for the above challenges. [here](https://gist.github.com/creighton/9709025906677e57e6f3 )
