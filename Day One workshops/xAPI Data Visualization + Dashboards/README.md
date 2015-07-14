@@ -27,3 +27,31 @@ Laptop equipped with a text editor ([Brackets](http://brackets.io/), [Sublime Te
 * [Example SCORM Statements](https://gist.github.com/ljwolford/94ddbaad5226ac274cd0)
 * [Example Beacon Statements](https://gist.github.com/ljwolford/0591c60c14e295c4f7d1)
 * [Example VWF Statements](https://gist.github.com/ljwolford/5020139db43b449e8042)
+
+
+#### Reference links (some are repeated...don't forget them!)
+
+
+[ADL’s xAPI Tools](http://adlnet.github.io)
+
+[xAPI Canteen](http://adlnet.github.io/xapi-canteen/)
+
+[xAPIWrapper](https://github.com/adlnet/xAPIWrapper)
+
+[xAPI bootcamp IRI](http://adlnet.gov/event/2015/xapibootcamp)
+
+xAPI Bootcamp Session IRIs
+
+* http://adlnet.gov/event/2015/xapibootcamp/dev/web
+* http://adlnet.gov/event/2015/xapibootcamp/dev/scorm
+* http://adlnet.gov/event/2015/xapibootcamp/dev/vw
+
+[xAPI Collection](https://github.com/adlnet/xAPI-Dashboard/blob/master/API_collection.md)
+
+[Simple JavaScript Examples](https://gist.github.com/ljwolford/9f0ae636b7bb36708a68)
+
+[Simple Collection Examples](https://gist.github.com/ljwolford/ac2dfc8fab5d2c91a1ea)
+
+[xAPI Charts](https://creighton.github.io/xAPI-Charts/)
+
+
