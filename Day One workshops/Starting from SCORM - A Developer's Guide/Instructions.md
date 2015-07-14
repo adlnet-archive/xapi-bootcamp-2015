@@ -31,25 +31,28 @@ Extract “Step 1 - RosesOriginal.zip” to a local directory on your computer. 
 
 In the "Step 1 - RosesOriginal".zip" directory structure, examine the following files:
 
-   * imsmanifest.xml for sco locations
-   * Assessments/assess_q1.html
-   * Introduction_To_Roses/Introduction.html
-   * PostTest/Posttest.html
+   * imsmanifest.xml - to see the complete list of SCOs in the course
+   * Assessments/assess_q1.html - to see the typical SCORM calls made for questions in this course
+   * Introduction_To_Roses/Introduction.html - to see typical non-question content in this course
+   * PostTest/Posttest.html - to see the final assessment SCORM logic
 
 *Workshop Demonstration - SCORM Course in an LMS*
 
-Note: If you have access to an LMS and would like to import your course steps into the LMS, please do so.  This is not required or needed to complete the workshop.
+Note: If you have access to an LMS and would like to import your course steps into the LMS, please do so.  To import, zip up all course files (so that the imsmanifest.xml is at the root of the zip), and use your LMS import functionality to upload the course.  
+This is not required or needed to complete the workshop.
 
 
 ### Step 2 - Replacing and Adding Files
 ---
 In this step, we will add some resources and make simple changes to enable the tracking of many SCORM Data Model elements via the xAPI (in addition to the original SCORM tracking).
 
-First, add the [xapiwrapper.min.js](https://raw.githubusercontent.com/adlnet/xAPIWrapper/master/dist/xapiwrapper.min.js) file to the scripts directory (/Shared/JavaScript).  This file will be used to abstract the complexity of the xAPI web service components.
+Move the following files to the "/Shared/JavaScript" directory
 
-Next, add the [SCORMToXAPIFunctions.js](https://raw.githubusercontent.com/adlnet/xapi-bootcamp-2015/master/Day%20One%20workshops/Starting%20from%20SCORM%20-%20A%20Developer's%20Guide/Resources/SCORMToXAPIFunctions.js) file to the scripts directory (/Shared/JavaScript).  
+[xapiwrapper.min.js](https://raw.githubusercontent.com/adlnet/xAPIWrapper/master/dist/xapiwrapper.min.js) - This file will be used to abstract the complexity of the xAPI web service components.
 
-Next, replace the SCORM course [SCORM 2004 APIWrapper.js](https://raw.githubusercontent.com/adlnet/SCORM-to-xAPI-Wrapper/master/SCORM2004/APIWrapper.js) file with the SCORM to xAPI Wrapper files (still named APIWrapper.js)
+[SCORMToXAPIFunctions.js](https://raw.githubusercontent.com/adlnet/xapi-bootcamp-2015/master/Day%20One%20workshops/Starting%20from%20SCORM%20-%20A%20Developer's%20Guide/Resources/SCORMToXAPIFunctions.js)  
+
+[SCORM 2004 APIWrapper.js](https://raw.githubusercontent.com/adlnet/SCORM-to-xAPI-Wrapper/master/SCORM2004/APIWrapper.js) - Note that you will be replacing the existing file.  It is important to keep the name "APIWrapper.js"
 
 *Workshop Demonstration - No demonstration capable in this step*
 
@@ -97,19 +100,19 @@ var activity = <manually configured URI goes here>;
 ```
 Add the appropriate identifier in each SCO.  The following list provides sample activity IDs that can be used for this exercise:
 
-   * http://adlnet.gov/courses/roses/q1
-   * http://adlnet.gov/courses/roses/q2
-   * http://adlnet.gov/courses/roses/q3
-   * http://adlnet.gov/courses/roses/q4
-   * http://adlnet.gov/courses/roses/symbolism
-   * http://adlnet.gov/courses/roses/deadheading
-   * http://adlnet.gov/courses/roses/hybrids
-   * http://adlnet.gov/courses/roses/introduction
-   * http://adlnet.gov/courses/roses/posttest
-   * http://adlnet.gov/courses/roses/pruning
-   * http://adlnet.gov/courses/roses/shearing
-   * http://adlnet.gov/courses/roses/styles
-   * http://adlnet.gov/courses/roses/what
+   * "http://adlnet.gov/courses/roses/q1"
+   * "http://adlnet.gov/courses/roses/q2"
+   * "http://adlnet.gov/courses/roses/q3"
+   * "http://adlnet.gov/courses/roses/q4"
+   * "http://adlnet.gov/courses/roses/symbolism"
+   * "http://adlnet.gov/courses/roses/deadheading"
+   * "http://adlnet.gov/courses/roses/hybrids"
+   * "http://adlnet.gov/courses/roses/introduction"
+   * "http://adlnet.gov/courses/roses/posttest"
+   * "http://adlnet.gov/courses/roses/pruning"
+   * "http://adlnet.gov/courses/roses/shearing"
+   * "http://adlnet.gov/courses/roses/styles"
+   * "http://adlnet.gov/courses/roses/what"
 
 *Workshop Demonstration - No demonstration capable in this step*
 
@@ -210,7 +213,7 @@ var getScoreData = function()
 }
 ```
 
-Next update the object return value to include the new public function.  Change the return value as follows:
+Next update the object return value to include the new public function.  Look for the code below and change as follows:
 
 ``` javascript
 ...
