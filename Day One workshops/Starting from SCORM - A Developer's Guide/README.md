@@ -1,4 +1,7 @@
 # Starting from SCORM: A Developer’s Guide
+  
+> This workshop has been moved to its own repository at: https://github.com/adlnet/Starting-from-SCORM-A-Developers-Guide
+
 
 Building blocks made simpler. 
 
