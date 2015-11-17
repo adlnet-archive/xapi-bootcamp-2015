@@ -1,4 +1,5 @@
 # Intro to Developing Web-based xAPI Content
+> This workshop has been moved to its own repository at: https://github.com/adlnet/Intro-to-Developing-Web-based-xAPI-Content
 
 There will be code.
 
